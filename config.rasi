@@ -1,0 +1,7 @@
+configuration {
+  font: "0xProto Nerd Font 14";
+  dpi: 143;
+}
+
+
+@theme "/usr/share/rofi/themes/solarized_alternate.rasi"

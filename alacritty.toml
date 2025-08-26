@@ -1,0 +1,28 @@
+# ~/.config/alacritty/alacritty.toml
+# ---------------------------------
+# 1. Paste with Ctrl+V instead of Ctrl+Shift+V
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control"
+
+# 2. Full 0xProto Nerd Font Mono setup
+[font]
+size = 14.0
+
+[font.normal]
+family = "0xProto Nerd Font Mono"
+style  = "Regular"
+
+[font.bold]
+family = "0xProto Nerd Font Mono"
+style  = "Bold"
+
+[font.italic]
+family = "0xProto Nerd Font Mono"
+style  = "Italic"
+
+[font.bold_italic]
+family = "0xProto Nerd Font Mono"
+style  = "Bold Italic"
+
