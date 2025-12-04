@@ -17,7 +17,7 @@ alias wifi="ping x.com"
 alias bye="sudo shutdown now"
 alias qbye="shutdown now"
 alias e="nvim"
-alias gtok="grep -Po '^GITHUB-DEVSETTINGS-TOKEN=\\K.*' ~/keys | xsel -b -i"
+alias gtok="grep -Po '^$$$$$$$$$$$$$$$$$$$$$$$$=\\K.*' ~/$$$$ | xsel -b -i"
 alias syu="sudo pacman -Syu"
 alias py="python3"
 
@@ -135,12 +135,47 @@ fi
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 export PATH="/opt/cmake/bin:$PATH"
 
+### GODLIKE tool fzf ###
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Custom function to cd to the directory of a selected file
+cdf() {
+  local file_path
+  # Call fzf to select a file
+  file_path=$(fzf)
+
+  # Check if a file was selected (i.e., fzf wasn't cancelled)
+  if [[ -n "$file_path" ]]; then
+    # Use dirname to extract the directory path from the file path
+    local dir_path
+    dir_path=$(dirname "$file_path")
+    
+    # Change directory to the extracted path
+    cd "$dir_path"
+  fi
+}
+
+###########
+
 #for lottery apps
-export MONGODB_URI="mongodb+srv://????:?????????@cluster0.nr6rlx4.mongodb.net/lottery?retryWrites=true&w=majority"
+export MONGODB_URI="$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
 export PATH=$PATH:/usr/sbin
 export PATH=$HOME/.cargo/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Add the platform-tools directory to PATH for ADB, fastboot, etc.
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export ANDROID_HOME=/opt/android-sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
