@@ -142,16 +142,13 @@ export PATH="/opt/cmake/bin:$PATH"
 # Custom function to cd to the directory of a selected file
 cdf() {
   local file_path
-  # Call fzf to select a file
-  file_path=$(fzf)
+  # Use 'find' to search all files starting from the HOME directory (~)
+  # We use '2> /dev/null' to suppress "Permission denied" errors for hidden directories
+  file_path=$(find ~ -type f 2> /dev/null | fzf)
 
-  # Check if a file was selected (i.e., fzf wasn't cancelled)
   if [[ -n "$file_path" ]]; then
-    # Use dirname to extract the directory path from the file path
     local dir_path
     dir_path=$(dirname "$file_path")
-    
-    # Change directory to the extracted path
     cd "$dir_path"
   fi
 }
