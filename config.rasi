@@ -1,6 +1,8 @@
+// ~/.config/rofi/config.rasi
+
 configuration {
-  font: "0xProto Nerd Font 14";
-  dpi: 143;
+  font: "BitstromWera Nerd Font 14";
+  dpi: 133;
 }
 
 
