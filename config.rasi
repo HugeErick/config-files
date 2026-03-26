@@ -1,9 +1,7 @@
-// ~/.config/rofi/config.rasi
-
 configuration {
   font: "BitstromWera Nerd Font 14";
   dpi: 133;
 }
 
 
-@theme "/usr/share/rofi/themes/solarized_alternate.rasi"
+@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
