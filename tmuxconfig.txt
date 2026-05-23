@@ -2,10 +2,8 @@
 # chmod +x ~/.tmux/plugins/tpm/tpm
 # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # list of plugins
-
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
-
 # configs
 # bindings 
 set -g prefix C-x 
@@ -41,6 +39,7 @@ set -g clock-mode-colour colour37
 # keep your existing layout settings:
 set -g status-left-length 50
 set -g status-right-length 50
+set -g status-right "#[fg=#fad643]  #{pane_current_path} #[fg=#bbbbbb]%H:%M"
 set -g window-status-format " #I:#W "
 set -g window-status-current-format " #I:#W "
 setw -g mode-keys vi
@@ -70,6 +69,5 @@ bind -T copy-mode-vi B send-keys -X previous-space
 bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -selection clipboard"
 bind -T copy-mode-vi w send-keys -X next-word
 bind -T copy-mode-vi W send-keys -X next-space
-
 # initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
