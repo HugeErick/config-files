@@ -16,7 +16,7 @@ alias wifi="ping x.com"
 alias bye="sudo poweroff"
 alias e="nvim"
 alias gtok=""
-alias syu="sudo xbps-install -Su"
+alias syu="sudo xbps-install -Syu"
 alias py="python3"
 alias clear="clear && tmux clear-history"
 
