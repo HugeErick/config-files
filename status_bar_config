@@ -1,0 +1,66 @@
+# rename to i3status/config to work
+
+general {
+    output_format = "i3bar"
+    colors        = true
+    interval      = 5
+
+    color_good     = "#ffb300"
+    color_degraded = "#c87f00"
+    color_bad      = "#EB190A"
+}
+
+order += "cpu_usage"
+order += "memory"
+order += "disk /"
+order += "wireless _first_"
+order += "battery all"
+order += "volume master"
+order += "tztime local"
+
+cpu_usage {
+    format        = "CPU %usage"
+    max_threshold = 85
+}
+
+memory {
+    format          = "MEM %used / %total"
+    format_degraded = "MEM LOW: %free"
+}
+
+disk "/" {
+    format = "DISK %avail"
+}
+
+wireless _first_ {
+    format_up   = "W: %essid (%quality) %ip"
+    format_down = "W: down"
+}
+
+ethernet _first_ {
+    format_up   = "E: %ip"
+    format_down = "E: down"
+}
+
+battery all {
+    format          = "BAT %status %percentage %remaining"
+    format_down     = "BAT: none"
+    status_chr      = "CHG"
+    status_bat      = "-"
+    status_unk      = "?"
+    status_full     = "="
+    low_threshold   = 15
+    threshold_type = time
+}
+
+volume master {
+    format       = "VOL %volume"
+    format_muted = "VOL muted"
+    device       = "default"
+    mixer        = "Master"
+    mixer_idx    = 0
+}
+
+tztime local {
+    format = "%a %d %b  %H:%M"
+}
