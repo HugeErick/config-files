@@ -5,6 +5,8 @@
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 # configs
+set-hook -g after-new-session 'set-option -F @origin_path "#{pane_current_path}"'
+bind c new-window -c "#{?@origin_path,#{@origin_path},#{pane_current_path}}"
 # bindings 
 set -g prefix C-x 
 unbind C-b
@@ -15,8 +17,7 @@ bind r source-file "~/.tmux.conf"
 # create a new key table called 'galua'
 bind g switch-client -T galua
 
-bind -T galua i run "~/devNest/shell/openGithub/open_github.sh"
-#bind -T galua w run "~/devNest/shell/updateWindurf/updateWindsurf.sh"
+bind -T galua i run "~/devNest/shell/open_github.sh"
 
 
 set-option -g focus-events on
