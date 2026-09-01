@@ -93,6 +93,8 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+
 # Add the platform-tools directory to PATH for ADB, fastboot, etc.
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export ANDROID_HOME=/opt/android-sdk
